@@ -1,0 +1,4 @@
+noremap h <C-p>
+noremap l <C-n>
+noremap j 5j
+noremap k 5k
