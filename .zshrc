@@ -47,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 alias diff="colordiff"
 alias dvs="$HOME/code/scripts/dvs.rb"
+alias t="$HOME/code/translate.rb -s en -t uk"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
