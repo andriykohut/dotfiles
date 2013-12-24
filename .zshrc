@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git virtualenvwrapper zsh-syntax-highlighting autojump command-not-found last-working-dir rvm gem rails colored-man task pyenv vagrant)
+plugins=(git virtualenvwrapper zsh-syntax-highlighting autojump command-not-found last-working-dir rvm gem rails colored-man task pyenv vagrant rake)
 
 source $ZSH/oh-my-zsh.sh
 
