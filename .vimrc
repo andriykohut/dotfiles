@@ -1,41 +1,31 @@
 set nocompatible
+filetype off
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mhinz/vim-signify'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
-Bundle 'Raimondi/delimitMate'
-Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'sjl/gundo.vim'
-Bundle 'klen/python-mode'
-Bundle 'bling/vim-airline'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rvm'
-Bundle 'SirVer/ultisnips'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/ruby-matchit'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'vim-scripts/bufexplorer.zip'
-Bundle 'godlygeek/tabular'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'gorodinskiy/vim-coloresque'
-Bundle 'mattn/emmet-vim'
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mhinz/vim-signify'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+Plugin 'Raimondi/delimitMate'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'sjl/gundo.vim'
+Plugin 'klen/python-mode'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'vim-scripts/bufexplorer.zip'
+Plugin 'godlygeek/tabular'
+Plugin 'farseer90718/vim-taskwarrior'
 
 syntax on
 filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 set autochdir
 set showmatch
@@ -47,10 +37,10 @@ set incsearch
 set ignorecase
 set incsearch
 set nowrap
-autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
-autocmd FileType sh setlocal ts=2 sts=2 sw=2 et ai
-autocmd FileType scss,ruby,eruby,css,html,yml setlocal ts=2 sts=2 sw=2 et ai
 set backspace=indent,eol,start
+
+autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
+autocmd FileType sh,scss,ruby,eruby,css,html,yml setlocal ts=2 sts=2 sw=2 et ai
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -75,8 +65,6 @@ let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 5
 
 let g:pymode_rope = 0
-let g:pymode_folding = 0
-let g:pymode_indent = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
 
@@ -87,12 +75,8 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['pylama']
-
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
 
 if has('gui_running')
     set guioptions-=m
