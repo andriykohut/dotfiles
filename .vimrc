@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mhinz/vim-signify'
 Plugin 'xolox/vim-misc'
@@ -13,6 +14,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'klen/python-mode'
 Plugin 'bling/vim-airline'
@@ -38,9 +40,10 @@ set ignorecase
 set incsearch
 set nowrap
 set backspace=indent,eol,start
+set noswapfile
 
-autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
-autocmd FileType sh,scss,ruby,eruby,css,html,yml setlocal ts=2 sts=2 sw=2 et ai
+autocmd FileType python,sh,html,css,perl setlocal ts=4 sts=4 sw=4 et ai
+autocmd FileType scss,ruby,eruby,yml setlocal ts=2 sts=2 sw=2 et ai
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
