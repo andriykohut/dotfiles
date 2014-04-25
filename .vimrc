@@ -24,6 +24,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/bufexplorer.zip'
 Plugin 'godlygeek/tabular'
 Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'Yggdroot/indentLine'
 
 syntax on
 filetype on
