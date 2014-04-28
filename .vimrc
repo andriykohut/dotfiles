@@ -1,10 +1,10 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mhinz/vim-signify'
@@ -25,6 +25,8 @@ Plugin 'vim-scripts/bufexplorer.zip'
 Plugin 'godlygeek/tabular'
 Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'Yggdroot/indentLine'
+
+call vundle#end()
 
 syntax on
 filetype on
