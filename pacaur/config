@@ -12,7 +12,7 @@ builddir="$HOME/.pacaur"       # build directory
 #editinstall=true                      # edit install script
 #fallback=true                         # pacman fallback to the AUR
 #clean=true                            # clean up after package install
-cleandevel=true                       # clean up devel package
+cleandevel=false                       # clean up devel package
 #secure=false                          # enhanced security
 #sudoloop=false                        # prevent sudo timeout
 
