@@ -73,6 +73,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export TERM="xterm-256color"
+
 # Aliases
 alias diff="colordiff"
 alias dvs="$HOME/code/scripts/dvs.rb"
