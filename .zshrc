@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -81,6 +81,7 @@ alias dvs="$HOME/code/scripts/dvs.rb"
 alias t="$HOME/code/translate.rb -s en -t uk"
 
 # RVM and Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export RI="-f ansi"
 export LESS="-R"
