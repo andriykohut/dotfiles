@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$PATH"
+export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -78,7 +78,7 @@ export TERM="xterm-256color"
 # Aliases
 alias diff="colordiff"
 alias dvs="$HOME/code/scripts/dvs.rb"
-alias t="$HOME/code/translate.rb -s en -t uk"
+alias t="rtranslate -s en -t uk"
 
 # RVM and Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
