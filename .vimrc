@@ -55,7 +55,7 @@ nnoremap <C-H> <C-W><C-H>
 
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12.5
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow
 set laststatus=2
 
 nnoremap <F2> :NERDTreeToggle<CR>
