@@ -77,7 +77,7 @@ export TERM="xterm-256color"
 
 # Aliases
 alias diff="colordiff"
-alias dvs="$HOME/code/scripts/dvs.rb"
+alias dvs="$HOME/code/repos/dotfiles/scripts/dvs.rb"
 alias t="rtranslate -s en -t uk"
 
 # RVM and Ruby
