@@ -56,6 +56,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12.5
+let base16colorspace=256  " Access colors present in 256 colorspace"
 set background=dark
 colorscheme base16-tomorrow
 set laststatus=2
