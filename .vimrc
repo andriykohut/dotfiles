@@ -27,6 +27,7 @@ Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
+Plugin 'eiginn/netrw'
 
 call vundle#end()
 
@@ -55,7 +56,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12.5
+set guifont=Monofur\ for\ Powerline\ Medium\ 15
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set background=dark
 colorscheme base16-tomorrow
