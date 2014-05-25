@@ -28,6 +28,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'eiginn/netrw'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 
@@ -49,7 +51,7 @@ set backspace=indent,eol,start
 set noswapfile
 
 autocmd FileType python,sh,html,css,perl,c setlocal ts=4 sts=4 sw=4 et ai
-autocmd FileType scss,ruby,eruby,yml setlocal ts=2 sts=2 sw=2 et ai
+autocmd FileType scss,ruby,eruby,yml,haml setlocal ts=2 sts=2 sw=2 et ai
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
