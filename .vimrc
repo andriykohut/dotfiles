@@ -30,6 +30,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'eiginn/netrw'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-eunuch'
 
 call vundle#end()
 
