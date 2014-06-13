@@ -31,7 +31,7 @@ Plugin 'eiginn/netrw'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tristen/vim-sparkup'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
