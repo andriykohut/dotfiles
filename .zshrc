@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pip virtualenvwrapper zsh-syntax-highlighting autojump last-working-dir rvm gem rails colored-man task vagrant rake extract)
+plugins=(git pip virtualenvwrapper autojump last-working-dir rvm gem rails colored-man task vagrant rake extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,3 +110,5 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
+# syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
