@@ -32,6 +32,9 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-eunuch'
 Plugin 'mattn/emmet-vim'
+Plugin 'fatih/vim-go'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -60,7 +63,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Monofur\ for\ Powerline\ Medium\ 15
+set guifont=Input\ Mono\ 12
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set background=dark
 colorscheme base16-tomorrow
@@ -72,6 +75,10 @@ let NERDTreeIgnore=['\.pyc$']
 nnoremap <F5> :GundoToggle<CR>
 
 nnoremap <F6> :TagbarToggle<CR>
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
 let g:session_autoload = 'yes'
