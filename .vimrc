@@ -35,6 +35,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'fatih/vim-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'dag/vim2hs'
 
 call vundle#end()
 
