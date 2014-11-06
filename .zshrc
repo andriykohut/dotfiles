@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pip virtualenvwrapper zsh-syntax-highlighting autojump last-working-dir rvm gem rails colored-man task vagrant rake extract)
+plugins=(git pip virtualenvwrapper zsh-syntax-highlighting autojump last-working-dir rvm gem rails colored-man task vagrant rake extract go zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,11 +75,6 @@ export PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/
 
 export TERM="xterm-256color"
 
-# Aliases
-alias diff="colordiff"
-alias dvs="$HOME/code/repos/dotfiles/scripts/dvs.rb"
-alias t="rtranslate -s en -t uk"
-
 # RVM and Ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -91,5 +86,13 @@ BASE16_SCHEME="tomorrow"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
+# zsh-history-substring-search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
 # Local-only settings
 [[ -s $HOME/.zshlocal ]] && . $HOME/.zshlocal
+
+# Aliases
+[[ -s $HOME/.zsh_aliases ]] && . $HOME/.zsh_aliases
