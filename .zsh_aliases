@@ -1,0 +1,3 @@
+alias diff="colordiff"
+alias dvs="$HOME/code/repos/dotfiles/scripts/dvs.rb"
+alias t="rtranslate -s en -t uk"
