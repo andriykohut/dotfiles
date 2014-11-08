@@ -53,6 +53,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'fisadev/vim-isort'
 
 call neobundle#end()
 
