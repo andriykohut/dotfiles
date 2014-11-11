@@ -101,7 +101,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 nnoremap <F6> :TagbarToggle<CR>
 
-nnoremap <C-P> :Unite<CR>
+noremap <C-P> :<C-u>Unite<cr>
 
 noremap <script> <silent> <unique> <Leader>be :Unite buffer<CR>
 
