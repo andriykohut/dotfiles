@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pip virtualenvwrapper zsh-syntax-highlighting autojump last-working-dir rvm gem rails colored-man task vagrant rake extract go zsh-history-substring-search)
+plugins=(git pip virtualenvwrapper zsh-syntax-highlighting autojump last-working-dir rvm gem rails colored-man task vagrant rake extract go zsh-history-substring-search docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,7 +82,7 @@ export RI="-f ansi"
 export LESS="-R"
 
 # Base16 Shell
-BASE16_SCHEME="tomorrow"
+BASE16_SCHEME="ocean"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
