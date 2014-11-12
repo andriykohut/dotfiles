@@ -1,3 +1,6 @@
 alias diff="colordiff"
 alias dvs="$HOME/code/repos/dotfiles/scripts/dvs.rb"
 alias t="rtranslate -s en -t uk"
+alias pxu='ssh -fND8888 bastion'
+alias pxd="pkill -f 'fND8888'"
+alias pxs="pgrep -f 'fND8888'"
