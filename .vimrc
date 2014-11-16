@@ -79,7 +79,7 @@ set backspace=indent,eol,start
 set noswapfile
 
 autocmd FileType python,sh,perl,c setlocal ts=4 sts=4 sw=4 et ai
-autocmd FileType scss,ruby,eruby,yaml,haml setlocal ts=2 sts=2 sw=2 et ai
+autocmd FileType scss,ruby,eruby,yaml,haml,haskell setlocal ts=2 sts=2 sw=2 et ai
 autocmd FileType cpp,c setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType go setlocal ts=4 sts=4 sw=4
 autocmd FileType css,html setlocal ts=2 sts=2 sw=2
