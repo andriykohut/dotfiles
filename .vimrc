@@ -118,6 +118,7 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['pylama']
+let g:syntastic_python_pylama_args = "-o ~/.pylama"
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
