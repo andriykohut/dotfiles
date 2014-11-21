@@ -1,0 +1,11 @@
+[pylama]
+format = pylint
+skip = */.tox/*,*/.env/*
+linters = pep257,pep8,mccabe,pyflakes
+ignore =
+
+[pylama:pep8]
+max_line_length = 120
+
+[pylama:pylint]
+max_line_length = 120
