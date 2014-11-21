@@ -150,9 +150,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-" VimFiler
-let g:vimfiler_as_default_explorer = 1
-
 " Unite
 let g:unite_enable_start_insert = 1
 
