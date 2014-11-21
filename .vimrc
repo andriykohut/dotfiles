@@ -89,7 +89,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 set guifont=Input\ Mono\ 12
-let base16colorspace=256  " Access colors present in 256 colorspace"
 set background=dark
 colorscheme hybrid
 set laststatus=2
@@ -103,11 +102,6 @@ nnoremap <F6> :TagbarToggle<CR>
 noremap <C-P> :<C-u>Unite<cr>
 
 noremap <script> <silent> <unique> <Leader>be :Unite buffer<CR>
-
-if has('gui_running')
-    set lines=40
-    set columns=80
-endif
 
 set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
 let g:session_autoload = 'yes'
