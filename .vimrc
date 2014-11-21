@@ -24,7 +24,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neossh.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'davidhalter/jedi-vim'
@@ -95,7 +94,7 @@ set background=dark
 colorscheme hybrid
 set laststatus=2
 
-nnoremap <F2> :VimFilerExplorer<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
 
 nnoremap <F5> :GundoToggle<CR>
 
