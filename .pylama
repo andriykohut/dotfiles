@@ -1,7 +1,7 @@
 [pylama]
 format = pylint
 skip = */.tox/*,*/.env/*
-linters = pep257,pep8,mccabe,pyflakes
+linters = pep8,mccabe,pyflakes
 ignore =
 
 [pylama:pep8]
