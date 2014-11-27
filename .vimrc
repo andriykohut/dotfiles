@@ -53,6 +53,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'fisadev/vim-isort'
+NeoBundle 'rking/ag.vim'
 
 call neobundle#end()
 
@@ -101,7 +102,7 @@ nnoremap <F6> :TagbarToggle<CR>
 
 noremap <C-P> :<C-u>Unite<cr>
 
-noremap <script> <silent> <unique> <Leader>be :Unite buffer<CR>
+nnoremap <silent> <Leader>be :Unite buffer<cr>
 
 set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
 let g:session_autoload = 'yes'
