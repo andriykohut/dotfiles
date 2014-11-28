@@ -28,6 +28,7 @@ NeoBundle 'Shougo/neossh.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'xolox/vim-misc'
@@ -77,6 +78,7 @@ set incsearch
 set nowrap
 set backspace=indent,eol,start
 set noswapfile
+set lazyredraw
 
 autocmd FileType python,sh,perl,c setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType scss,ruby,eruby,yaml,haml,haskell setlocal ts=2 sts=2 sw=2 et ai
