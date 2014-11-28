@@ -56,6 +56,7 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'tpope/vim-commentary'
 
 call neobundle#end()
 
