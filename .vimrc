@@ -30,6 +30,7 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
@@ -96,7 +97,7 @@ set background=dark
 colorscheme hybrid
 set laststatus=2
 
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeTabsToggle<CR>
 
 nnoremap <F5> :GundoToggle<CR>
 
@@ -105,6 +106,8 @@ nnoremap <F6> :TagbarToggle<CR>
 noremap <C-P> :<C-u>Unite<cr>
 
 nnoremap <silent> <Leader>be :Unite buffer<cr>
+
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
 let g:session_autoload = 'yes'
