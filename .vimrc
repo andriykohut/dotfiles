@@ -93,7 +93,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Input\ Mono\ 12
+set guifont=Monofur\ for\ Powerline\ 15
 set background=dark
 colorscheme hybrid
 set laststatus=2
