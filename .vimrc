@@ -31,7 +31,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'mhinz/vim-signify'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'Raimondi/delimitMate'
@@ -53,10 +53,12 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
 
@@ -93,9 +95,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Input\ Mono\ 12
+set guifont=PT\ Mono\ for\ Powerline\ 13
 set background=dark
-colorscheme hybrid
+colorscheme base16-tomorrow
 set laststatus=2
 
 nnoremap <F2> :NERDTreeTabsToggle<CR>
@@ -106,7 +108,7 @@ nnoremap <F6> :TagbarToggle<CR>
 
 noremap <C-P> :<C-u>Unite<cr>
 
-nnoremap <silent> <Leader>be :Unite buffer<cr>
+nnoremap <silent> <Leader>be :Unite buffer<cr><Esc>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
@@ -157,6 +159,9 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" Snippet engine for golang
+let g:go_snippet_engine = "neosnippet"
 
 " Unite
 let g:unite_enable_start_insert = 1
