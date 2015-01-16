@@ -52,13 +52,14 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'farseer90718/vim-taskwarrior'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'eagletmt/neco-ghc'
 
 call neobundle#end()
 
@@ -97,7 +98,7 @@ nnoremap <C-H> <C-W><C-H>
 
 set guifont=PT\ Mono\ for\ Powerline\ 13
 set background=dark
-colorscheme base16-tomorrow
+colorscheme hybrid
 set laststatus=2
 
 nnoremap <F2> :NERDTreeTabsToggle<CR>
@@ -106,11 +107,12 @@ nnoremap <F5> :GundoToggle<CR>
 
 nnoremap <F6> :TagbarToggle<CR>
 
-noremap <C-P> :<C-u>Unite<cr>
-
-nnoremap <silent> <Leader>be :Unite buffer<cr><Esc>
+nnoremap ;u :Unite<CR>
+nnoremap ;b :Unite buffer<CR><Esc>j
+nnoremap ;f :Unite file<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeIgnore = ['\.pyc$']
 
 set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
 let g:session_autoload = 'yes'
