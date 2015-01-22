@@ -60,6 +60,12 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'farseer90718/vim-taskwarrior'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/neco-ghc'
+" Do not load vim-pyenv until *.py is opened and
+" make sure that it is loaded after jedi-vim is loaded.
+NeoBundleLazy 'lambdalisue/vim-pyenv', {
+\ 'depends': ['davidhalter/jedi-vim'],
+\ 'autoload': { 'filetypes': ['python', 'python3'], }
+\ }
 
 call neobundle#end()
 
@@ -176,6 +182,7 @@ if has('gui_running')
     set guioptions-=L
     set guioptions-=R
     set guioptions-=l
+    set cursorline
 else
     set term=screen-256color
 endif
