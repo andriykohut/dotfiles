@@ -125,6 +125,8 @@ let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 5
 
+let g:pyenv#auto_activate = 0
+
 let g:pymode_rope = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
