@@ -21,6 +21,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -32,8 +33,6 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'chriskempson/base16-vim'
@@ -60,6 +59,14 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'farseer90718/vim-taskwarrior'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'c9s/perlomni.vim', {
+\ 'build' : {
+\     'mac' : 'make install',
+\     'linux' : 'make install',
+\    },
+\ }
 " Do not load vim-pyenv until *.py is opened and
 " make sure that it is loaded after jedi-vim is loaded.
 NeoBundleLazy 'lambdalisue/vim-pyenv', {
@@ -77,13 +84,12 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" set autochdir
+set autochdir
 set showmatch
 set showcmd
 set wildmenu
 set wildmode=list:longest,full
 set number
-set incsearch
 set ignorecase
 set incsearch
 set nowrap
@@ -91,7 +97,7 @@ set backspace=indent,eol,start
 set noswapfile
 set lazyredraw
 
-autocmd FileType python,sh,perl,c setlocal ts=4 sts=4 sw=4 et ai
+autocmd FileType python,sh,perl,c,sql setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType scss,ruby,eruby,yaml,haml,haskell setlocal ts=2 sts=2 sw=2 et ai
 autocmd FileType cpp,c setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType go setlocal ts=4 sts=4 sw=4
@@ -102,7 +108,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=PT\ Mono\ for\ Powerline\ 13
+set guifont=Monaco\ for\ Powerline:h16
 set background=dark
 colorscheme hybrid
 set laststatus=2
@@ -119,11 +125,6 @@ nnoremap ;f :Unite file<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeIgnore = ['\.pyc$']
-
-set ssop+=resize,winpos,winsize,blank,buffers,curdir,folds,help,options,tabpages
-let g:session_autoload = 'yes'
-let g:session_autosave = 'yes'
-let g:session_autosave_periodic = 5
 
 let g:pyenv#auto_activate = 0
 
@@ -149,6 +150,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+" Perlomni
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.perl = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -164,6 +170,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" Incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " For snippet_complete marker.
 if has('conceal')
