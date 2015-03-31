@@ -22,6 +22,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/unite-session'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -59,7 +60,12 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'farseer90718/vim-taskwarrior'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'vim-perl/vim-perl', {
+\ 'build' : {
+\     'mac' : 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny',
+\     'linux' : 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny',
+\    },
+\ }
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'c9s/perlomni.vim', {
 \ 'build' : {
@@ -192,7 +198,7 @@ if has('gui_running')
     set guioptions-=m
     set guioptions-=e
     set guioptions-=T
-    set guioptions-=r
+    " set guioptions-=r
     set guioptions-=L
     set guioptions-=R
     set guioptions-=l
