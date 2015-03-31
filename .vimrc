@@ -120,8 +120,9 @@ nnoremap <F5> :GundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 
 nnoremap ;u :Unite<CR>
-nnoremap ;b :Unite buffer<CR><Esc>j
+nnoremap ;b :Unite buffer<CR>
 nnoremap ;f :Unite file<CR>
+nnoremap ;o :Unite outline<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeIgnore = ['\.pyc$']
