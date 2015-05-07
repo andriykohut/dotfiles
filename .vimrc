@@ -1,10 +1,16 @@
+" Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
 if has('vim_starting')
-  set nocompatible
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
@@ -53,13 +59,17 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'benmills/vimux'
 NeoBundle 'farseer90718/vim-taskwarrior'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'vim-perl/vim-perl', {
 \ 'build' : {
 \     'mac' : 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny',
@@ -90,7 +100,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-set autochdir
 set showmatch
 set showcmd
 set wildmenu
@@ -103,7 +112,7 @@ set backspace=indent,eol,start
 set noswapfile
 set lazyredraw
 
-autocmd FileType python,sh,perl,c,sql setlocal ts=4 sts=4 sw=4 et ai
+autocmd FileType python,sh,perl,c,sql,javascript setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType scss,ruby,eruby,yaml,haml,haskell setlocal ts=2 sts=2 sw=2 et ai
 autocmd FileType cpp,c setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType go setlocal ts=4 sts=4 sw=4
@@ -116,6 +125,7 @@ nnoremap <C-H> <C-W><C-H>
 
 set guifont=Monaco\ for\ Powerline:h16
 set background=dark
+let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 set laststatus=2
 
@@ -144,10 +154,22 @@ let g:pymode_doc = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+" navigate to specific buffers
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['pylama']
 let g:syntastic_python_pylama_args = "-o ~/.pylama"
+
+let g:syntastic_perl_checers = ['perlcritic']
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -160,10 +182,7 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " Perlomni
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.perl = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#force_omni_input_patterns.perl = '\h\w*->\|\h\w*->\h\w*\|\h\w*::\|\h\w*::\h\w*'
 
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -197,7 +216,7 @@ if has('gui_running')
     set guioptions-=m
     set guioptions-=e
     set guioptions-=T
-    " set guioptions-=r
+    set guioptions-=r
     set guioptions-=L
     set guioptions-=R
     set guioptions-=l
