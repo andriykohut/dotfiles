@@ -125,10 +125,12 @@ nnoremap <F5> :GundoToggle<CR>
 
 nnoremap <F6> :TagbarToggle<CR>
 
-nnoremap ;u :Unite<CR>
+call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap ;u :Unite -start-insert<CR>
 nnoremap ;b :Unite buffer<CR>
-nnoremap ;f :Unite file_rec/async<CR>
-nnoremap ;o :Unite outline<CR>
+nnoremap ;f :Unite -start-insert file_rec/async:!<CR>
+nnoremap ;o :Unite -start-insert outline<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeIgnore = ['\.pyc$']
@@ -190,9 +192,6 @@ endif
 
 " Snippet engine for golang
 let g:go_snippet_engine = "neosnippet"
-
-" Unite
-let g:unite_enable_start_insert = 1
 
 if has('gui_running')
     set guioptions-=m
