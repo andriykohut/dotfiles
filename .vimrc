@@ -127,7 +127,7 @@ nnoremap <F6> :TagbarToggle<CR>
 
 nnoremap ;u :Unite<CR>
 nnoremap ;b :Unite buffer<CR>
-nnoremap ;f :Unite file<CR>
+nnoremap ;f :Unite file_rec/async<CR>
 nnoremap ;o :Unite outline<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
