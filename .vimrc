@@ -141,6 +141,7 @@ nnoremap ;u :Unite -start-insert<CR>
 nnoremap ;b :Unite buffer<CR>
 nnoremap ;f :Unite -start-insert file_rec/async:!<CR>
 nnoremap ;o :Unite -start-insert outline<CR>
+nnoremap ;r :Unite -start-insert file_mru<CR>
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeIgnore = ['\.pyc$']
