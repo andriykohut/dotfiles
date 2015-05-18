@@ -77,12 +77,6 @@ NeoBundle 'vim-perl/vim-perl', {
 \    },
 \ }
 NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'c9s/perlomni.vim', {
-\ 'build' : {
-\     'mac' : 'make install',
-\     'linux' : 'make install',
-\    },
-\ }
 " Do not load vim-pyenv until *.py is opened and
 " make sure that it is loaded after jedi-vim is loaded.
 NeoBundleLazy 'lambdalisue/vim-pyenv', {
@@ -182,8 +176,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-" Perlomni
-let g:neocomplete#force_omni_input_patterns.perl = '\h\w*->\|\h\w*->\h\w*\|\h\w*::\|\h\w*::\h\w*'
 
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
