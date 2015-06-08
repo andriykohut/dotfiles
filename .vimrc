@@ -131,6 +131,8 @@ nnoremap <F6> :TagbarToggle<CR>
 
 call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
 nnoremap ;u :Unite -start-insert<CR>
 nnoremap ;b :Unite buffer<CR>
 nnoremap ;f :Unite -start-insert file_rec/async:!<CR>
