@@ -7,8 +7,10 @@ aurupd() {
   pacaur -Syua --devel --noconfirm --noedit --needed
   leftovers=$(find $HOME/.pacaur -name '*.pkg.tar.xz')
   if [[ -n "$leftovers" ]]; then
-    print Cleaning up $leftovers
-    rm $leftovers
+    while read -r line; do
+      echo "Removing $line"
+      rm $line
+    done <<< ${leftovers}
   else
     print "No leftovers"
   fi
