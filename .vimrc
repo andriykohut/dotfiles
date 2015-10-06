@@ -28,6 +28,8 @@ Plug 'vim-perl/vim-perl', { 'do': 'make clean carp dancer highlight-all-pragmas 
 Plug 'c9s/perlomni.vim', { 'do': 'make install' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'szw/vim-ctrlspace'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
 
@@ -153,6 +155,25 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" Neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 if has('gui_running')
     set guioptions-=m
