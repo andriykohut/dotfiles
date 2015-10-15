@@ -7,6 +7,7 @@ Plug 'Shougo/unite-outline'
 Plug 'Shougo/neocomplete.vim'
 Plug 'klen/python-mode'
 Plug 'davidhalter/jedi-vim'
+Plug 'lambdalisue/vim-pyenv'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -49,6 +50,7 @@ set backspace=indent,eol,start
 set noswapfile
 set lazyredraw
 set hidden
+set noautochdir
 
 autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType go setlocal ts=4 sts=4 sw=4
@@ -78,6 +80,7 @@ nnoremap ;b :Unite -toggle -start-insert buffer_tab<cr>
 " Unite
 call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
 call unite#custom#source('file_rec/async', 'required_pattern_length', 2)
+call unite#custom#source('file_rec/git', 'required_pattern_length', 2)
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
@@ -95,6 +98,7 @@ let NERDTreeIgnore = ['\.pyc$']
 let g:pymode_rope = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
+let g:pymode_virtualenv = 0
 
 " Airine
 let g:airline_powerline_fonts = 1
@@ -122,6 +126,7 @@ let g:syntastic_perl_checers = ['perlcritic']
 " Disable Jedi, we will use neocomplete
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
 
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
