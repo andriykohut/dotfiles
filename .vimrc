@@ -1,36 +1,45 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimproc.vim', { 'do' : 'make -f make_mac.mak' }
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/neocomplete.vim'
-Plug 'klen/python-mode'
-Plug 'davidhalter/jedi-vim'
-Plug 'lambdalisue/vim-pyenv'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+Plug 'szw/vim-ctrlspace'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-fnr'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Yggdroot/indentLine'
 Plug 'eiginn/netrw'
 Plug 'mattn/emmet-vim'
-Plug 'fatih/vim-go'
-Plug 'w0ng/vim-hybrid'
 Plug 'rking/ag.vim'
 Plug 'jszakmeister/vim-togglecursor'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" Python
+Plug 'hdima/python-syntax'
+Plug 'tmhedberg/SimpylFold'
+Plug 'heavenshell/vim-pydocstring'
+Plug 'davidhalter/jedi-vim'
+Plug 'lambdalisue/vim-pyenv'
+" Go
+Plug 'fatih/vim-go'
+" Perl
 Plug 'vim-perl/vim-perl', { 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'c9s/perlomni.vim', { 'do': 'make install' }
-Plug 'haya14busa/incsearch.vim'
-Plug 'szw/vim-ctrlspace'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Colorschemes
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -48,34 +57,63 @@ set incsearch
 set nowrap
 set backspace=indent,eol,start
 set noswapfile
-set lazyredraw
 set hidden
 set noautochdir
+set autoindent
+set smarttab
+set formatoptions+=j
+set autoread
+set laststatus=2
+
+let g:hybrid_use_Xresources = 1
+set guifont=Fantasque\ Sans\ Mono:h15
+set background=dark
+colorscheme hybrid
 
 autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType go setlocal ts=4 sts=4 sw=4
 autocmd FileType css,html,javascript setlocal ts=2 sts=2 sw=2 et ai
 autocmd FileType perl setlocal ts=4 sts=4 sw=4 ai noexpandtab
+autocmd BufRead,BufNewFile *.tt set filetype=tt2html
 
+let mapleader = ' '
+let maplocalleader = ' '
+
+" Movement in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-^> <C-o><C-^>
+
+" Easier split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Monofur\ for\ Powerline:h18
-set background=dark
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-set laststatus=2
+" Buffer movement
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
 
-nnoremap ;f :NERDTreeTabsToggle<cr>
-nnoremap ;u :GundoToggle<cr>
-nnoremap ;t :TagbarToggle<cr>
-nnoremap ;o :Unite -toggle -start-insert outline<cr>
-nnoremap ;s :Unite -toggle -start-insert file_rec/async<cr>
-nnoremap ;g :Unite -toggle -start-insert file_rec/git<cr>
-nnoremap ;r :Unite -toggle -start-insert neomru/file<cr>
-nnoremap ;b :Unite -toggle -start-insert buffer_tab<cr>
+nnoremap <Leader>f :NERDTreeTabsToggle<cr>
+nnoremap <Leader>u :UndotreeToggle<cr>
+nnoremap <Leader>t :TagbarToggle<cr>
+
+" Unite
+nnoremap <Leader>o :Unite -toggle -start-insert outline<cr>
+nnoremap <Leader>s :Unite -toggle -start-insert file_rec/async<cr>
+nnoremap <Leader>g :Unite -toggle -start-insert file_rec/git<cr>
+nnoremap <Leader>r :Unite -toggle -start-insert neomru/file<cr>
+nnoremap <Leader>b :Unite -toggle -start-insert buffer_tab<cr>
+
+" System clipboard copy/paste
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 
 " Unite
 call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
@@ -84,21 +122,12 @@ call unite#custom#source('file_rec/git', 'required_pattern_length', 2)
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-" CtrlSpace
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-let g:CtrlSpaceSearchTiming = 500
-
 " NerdTree
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeIgnore = ['\.pyc$']
 
-" Pymode
-let g:pymode_rope = 0
-let g:pymode_lint = 0
-let g:pymode_doc = 0
-let g:pymode_virtualenv = 0
+" Python syntax
+let python_highlight_all = 1
 
 " Airine
 let g:airline_powerline_fonts = 1
@@ -118,67 +147,49 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_python_checkers = ['pylama']
-let g:syntastic_python_pylama_args = "-o ~/.pylama"
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checers = ['perlcritic']
 
-" Disable Jedi, we will use neocomplete
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
+" GitGutter
+let g:gitgutter_max_signs = 5000
 
 " Neocomplete
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+inoremap <expr><C-g> neocomplete#undo_completion()
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 autocmd FileType python setlocal omnifunc=jedi#completions
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 let g:neocomplete#force_omni_input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-" Neosnippet
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 if has('gui_running')
     set guioptions-=m
