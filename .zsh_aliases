@@ -1,7 +1,4 @@
 alias diff="colordiff"
-alias dvs="$HOME/code/repos/dotfiles/scripts/dvs.rb"
-alias t="rtranslate -s en -t uk"
-alias z="zathura --fork -l error"
 
 aurupd() {
   pacaur -Syua --devel --noconfirm --noedit --needed
@@ -12,6 +9,15 @@ aurupd() {
       rm $line
     done <<< ${leftovers}
   else
-    print "No leftovers"
+    print "No leftover files"
+  fi
+  nongit=$(ls -d $HOME/.pacaur/*/ | egrep -v "\-git/$")
+  if [[ -n "$nongit" ]]; then
+    while read -r line; do
+      echo "Removing directory $line"
+      rm -rf $line
+    done <<< ${nongit}
+  else
+    print "No leftover dirs"
   fi
 }
