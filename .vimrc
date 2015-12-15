@@ -42,6 +42,8 @@ Plug 'vim-perl/vim-perl', { 'do': 'make clean carp dancer highlight-all-pragmas 
 Plug 'c9s/perlomni.vim', { 'do': 'make install' }
 " Colorschemes
 Plug 'w0ng/vim-hybrid'
+" C
+Plug 'osyo-manga/vim-marching'
 
 call plug#end()
 
@@ -72,10 +74,11 @@ set guifont=Fantasque\ Sans\ Mono:h15
 set background=dark
 colorscheme hybrid
 
-autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai
+autocmd FileType python,c setlocal ts=4 sts=4 sw=4 et ai
 autocmd FileType go setlocal ts=4 sts=4 sw=4
 autocmd FileType css,html,javascript setlocal ts=2 sts=2 sw=2 et ai
 autocmd FileType perl setlocal ts=4 sts=4 sw=4 ai noexpandtab
+autocmd FileType make setlocal ts=4
 autocmd BufRead,BufNewFile *.tt set filetype=tt2html
 
 let mapleader = ' '
@@ -102,12 +105,20 @@ nnoremap <Leader>f :NERDTreeTabsToggle<cr>
 nnoremap <Leader>u :UndotreeToggle<cr>
 nnoremap <Leader>t :TagbarToggle<cr>
 
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
+
 " Unite
 nnoremap <Leader>o :Unite -toggle -start-insert outline<cr>
 nnoremap <Leader>s :Unite -toggle -start-insert file_rec/async<cr>
 nnoremap <Leader>g :Unite -toggle -start-insert file_rec/git<cr>
 nnoremap <Leader>r :Unite -toggle -start-insert neomru/file<cr>
 nnoremap <Leader>b :Unite -toggle -start-insert buffer_tab<cr>
+nnoremap <Leader>s :Unite -toggle grep:. -buffer-name=search-buffer<CR>
 
 " System clipboard copy/paste
 vmap <Leader>y "+y
@@ -188,10 +199,33 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
+" Marching
+let g:marching_clang_command = "clang"
+let g:marching_include_paths = filter(
+  \ split(glob('/usr/include/c++/*'), '\n') +
+  \ split(glob('/usr/include/*/c++/*'), '\n') +
+  \ split(glob('/usr/include/*/'), '\n'),
+  \ 'isdirectory(v:val)')
+let g:marching_enable_neocomplete = 1
+
 " UltiSnips
+let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" automatically call jedi#force_py_version every after user change a python version of pyenv
+if jedi#init_python()
+  function! s:jedi_auto_force_py_version() abort
+    let major_version = pyenv#python#get_internal_major_version()
+    call jedi#force_py_version(major_version)
+  endfunction
+  augroup vim-pyenv-custom-augroup
+    autocmd! *
+    autocmd User vim-pyenv-activate-post   call s:jedi_auto_force_py_version()
+    autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
+  augroup END
+endif
 
 if has('gui_running')
     set guioptions-=m
