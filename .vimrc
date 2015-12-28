@@ -30,7 +30,7 @@ Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Python
-Plug 'hdima/python-syntax'
+Plug 'mitsuhiko/vim-python-combined'
 Plug 'tmhedberg/SimpylFold'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'davidhalter/jedi-vim'
@@ -81,6 +81,10 @@ autocmd FileType perl setlocal ts=4 sts=4 sw=4 ai noexpandtab
 autocmd FileType make setlocal ts=4
 autocmd BufRead,BufNewFile *.tt set filetype=tt2html
 
+" SimplyFold stuff
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
 let mapleader = ' '
 let maplocalleader = ' '
 
@@ -116,9 +120,9 @@ endif
 nnoremap <Leader>o :Unite -toggle -start-insert outline<cr>
 nnoremap <Leader>s :Unite -toggle -start-insert file_rec/async<cr>
 nnoremap <Leader>g :Unite -toggle -start-insert file_rec/git<cr>
-nnoremap <Leader>r :Unite -toggle -start-insert neomru/file<cr>
+nnoremap <Leader>m :Unite -toggle -start-insert neomru/file<cr>
 nnoremap <Leader>b :Unite -toggle -start-insert buffer_tab<cr>
-nnoremap <Leader>s :Unite -toggle grep:. -buffer-name=search-buffer<CR>
+nnoremap <Leader>t :Unite -toggle grep:. -buffer-name=search-buffer<CR>
 
 " System clipboard copy/paste
 vmap <Leader>y "+y
@@ -209,7 +213,7 @@ let g:marching_include_paths = filter(
 let g:marching_enable_neocomplete = 1
 
 " UltiSnips
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
