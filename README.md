@@ -16,3 +16,6 @@ Fresh system install list:
 * https://github.com/monochromegane/the_platinum_searcher
 * https://github.com/nvbn/thefuck
 * https://github.com/jonas/tig
+* https://github.com/rimraf/k
+* https://github.com/Mayccoll/Gogh
+* http://lnav.org/
