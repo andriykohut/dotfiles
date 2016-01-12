@@ -69,7 +69,7 @@ set formatoptions+=j
 set autoread
 set laststatus=2
 
-let g:hybrid_use_Xresources = 1
+let g:hybrid_custom_term_colors = 1
 set guifont=Fantasque\ Sans\ Mono:h15
 set background=dark
 colorscheme hybrid
@@ -123,14 +123,6 @@ nnoremap <Leader>g :Unite -toggle -start-insert file_rec/git<cr>
 nnoremap <Leader>m :Unite -toggle -start-insert neomru/file<cr>
 nnoremap <Leader>b :Unite -toggle -start-insert buffer_tab<cr>
 nnoremap <Leader>t :Unite -toggle grep:. -buffer-name=search-buffer<CR>
-
-" System clipboard copy/paste
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
 
 " Unite
 call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
