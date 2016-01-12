@@ -30,7 +30,7 @@ Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Python
-Plug 'mitsuhiko/vim-python-combined'
+Plug 'hdima/python-syntax'
 Plug 'tmhedberg/SimpylFold'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'davidhalter/jedi-vim'
@@ -137,6 +137,7 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Python syntax
 let python_highlight_all = 1
+autocmd FileType python syn keyword Identifier self cls
 
 " Airine
 let g:airline_powerline_fonts = 1
