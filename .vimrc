@@ -18,7 +18,8 @@ Plug 'junegunn/vim-fnr'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Yggdroot/indentLine'
@@ -37,6 +38,9 @@ Plug 'davidhalter/jedi-vim'
 Plug 'lambdalisue/vim-pyenv'
 " Go
 Plug 'fatih/vim-go'
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 " Perl
 Plug 'vim-perl/vim-perl', { 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 Plug 'c9s/perlomni.vim', { 'do': 'make install' }
@@ -138,6 +142,12 @@ let NERDTreeIgnore = ['\.pyc$']
 " Python syntax
 let python_highlight_all = 1
 autocmd FileType python syn keyword Identifier self cls
+
+" Rust
+let g:rustfmt_autosave = 1
+set hidden
+let g:racer_cmd = "/Users/crunchy/.cargo/bin/racer"
+let $RUST_SRC_PATH="/Users/crunchy/code/rust-master/src/"
 
 " Airine
 let g:airline_powerline_fonts = 1
