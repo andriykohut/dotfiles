@@ -74,7 +74,11 @@ set autoread
 set laststatus=2
 
 let g:hybrid_custom_term_colors = 1
-set guifont=Fantasque\ Sans\ Mono:h15
+if has("mac")
+  set guifont=Fantasque\ Sans\ Mono:h15
+else
+  set guifont=Fantasque\ Sans\ Mono\ 13
+end
 set background=dark
 colorscheme hybrid
 
@@ -146,8 +150,6 @@ autocmd FileType python syn keyword Identifier self cls
 " Rust
 let g:rustfmt_autosave = 1
 set hidden
-let g:racer_cmd = "/Users/crunchy/.cargo/bin/racer"
-let $RUST_SRC_PATH="/Users/crunchy/code/rust-master/src/"
 
 " Airine
 let g:airline_powerline_fonts = 1
