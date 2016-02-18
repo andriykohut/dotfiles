@@ -22,3 +22,4 @@ Fresh system install list:
 * https://github.com/google/yapf
 * https://github.com/jonathanslenders/ptpython
 * https://github.com/jonathanslenders/ptpdb
+* https://github.com/so-fancy/diff-so-fancy
