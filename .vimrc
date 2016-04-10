@@ -49,6 +49,9 @@ Plug 'w0ng/vim-hybrid'
 " C
 Plug 'osyo-manga/vim-marching'
 
+" JS
+Plug 'othree/yajs.vim'
+
 call plug#end()
 
 syntax on
