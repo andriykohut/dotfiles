@@ -2,7 +2,7 @@ alias diff="colordiff"
 
 aurupd() {
   AURDEST=$HOME/.pacaur pacaur -Syua --devel --noconfirm --noedit --needed
-  leftovers=$(find $HOME/.pacaur -name '*.pkg.tar.xz')
+  leftovers=$(find $HOME/.cache/pacaur -name '*.pkg.tar.xz')
   if [[ -n "$leftovers" ]]; then
     while read -r line; do
       echo "Removing $line"
@@ -10,14 +10,5 @@ aurupd() {
     done <<< ${leftovers}
   else
     print "No leftover files"
-  fi
-  nongit=$(ls -d $HOME/.pacaur/*/ | egrep -v "\-git/$")
-  if [[ -n "$nongit" ]]; then
-    while read -r line; do
-      echo "Removing directory $line"
-      rm -rf $line
-    done <<< ${nongit}
-  else
-    print "No leftover dirs"
   fi
 }
