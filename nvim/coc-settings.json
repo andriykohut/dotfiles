@@ -3,5 +3,10 @@
   "python.linting.mypyEnabled": true,
   "python.linting.ruffEnabled": true,
   "python.linting.pylintEnabled": true,
-  "pyright.testing.provider": "pytest"
+  "pyright.testing.provider": "pytest",
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.ca",
+    "$HOME/.rustup/**"
+  ]
 }
