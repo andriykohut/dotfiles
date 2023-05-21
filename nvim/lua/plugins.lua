@@ -116,6 +116,8 @@ require("lazy").setup({
   "mfussenegger/nvim-dap-python"
 })
 
+vim.g.coc_global_extensions = { 'coc-json', 'coc-tsserver', 'coc-lua', 'coc-pyright', 'coc-sql' }
+
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 local dap = require('dap')
