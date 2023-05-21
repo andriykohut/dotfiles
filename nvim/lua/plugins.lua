@@ -111,8 +111,17 @@ require("lazy").setup({
   {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
-    config = function () require("dapui").setup() end
-  }
+    config = function() require("dapui").setup() end
+  },
+  "mfussenegger/nvim-dap-python"
 })
 
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+local dap = require('dap')
+dap.adapters.python = {
+  type = 'executable',
+  command = os.getenv('HOME') .. '/.pyenv/versions/tools/bin/python',
+  args = { '-m', 'debugpy.adapter' },
+}
+require('dap-python').setup('~/.pyenv/versions/tools/bin/python')
