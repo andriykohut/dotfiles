@@ -113,7 +113,17 @@ require("lazy").setup({
     dependencies = "mfussenegger/nvim-dap",
     config = function() require("dapui").setup() end
   },
-  "mfussenegger/nvim-dap-python"
+  "mfussenegger/nvim-dap-python",
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<c-\>]]
+      })
+    end
+  }
+
 })
 
 vim.g.coc_global_extensions = {
