@@ -69,12 +69,9 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
-    'ggandor/flit.nvim',
-    dependencies = {
-      'tpope/vim-repeat',
-      'ggandor/leap.nvim'
-    },
-    config = function() require('flit').setup({ labeled_modes = "nvo" }) end
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' },
+    config = function() require('leap').add_default_mappings() end
   },
   {
     'lewis6991/gitsigns.nvim',
