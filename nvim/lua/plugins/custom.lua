@@ -75,13 +75,15 @@ return {
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources, {
         nls.builtins.formatting.black,
         nls.builtins.formatting.isort,
-        nls.builtins.diagnostics.mypy,
+        nls.builtins.diagnostics.mypy.with({
+          prefer_local = "./.venv/bin",
+        }),
         nls.builtins.diagnostics.ruff,
         nls.builtins.diagnostics.cspell,
         nls.builtins.code_actions.cspell,
