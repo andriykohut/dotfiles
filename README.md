@@ -13,8 +13,17 @@ git init -b main
 git remote add origin git@github.com:andriykohut/dotfiles.git
 git fetch origin
 git checkout -f main
-./install.sh
+
+./bootstrap.sh   # install the toolchain
+./install.sh     # link the dotfiles
 ```
+
+`bootstrap.sh` installs Homebrew and everything in `Brewfile`, then the tools
+that ship their own installers and self-update outside Homebrew — `uv`,
+`atuin`, `rustup` — followed by the Python CLI apps and Node. Every step is
+skipped if already present, so it is safe to re-run.
+
+`install.sh` only creates symlinks.
 
 `~/.config` usually already exists and contains files, which is why this is an
 `init`-and-`fetch` rather than a `git clone`.
@@ -32,6 +41,9 @@ git checkout -f main
 | `home/.tmux.conf.local` | `~` |
 | `nvim/`, `ghostty/`, `workmux/` | already in place |
 
+`Brewfile` and `bootstrap.sh` install the toolchain; `install.sh` links the
+dotfiles.
+
 Everything else in `~/.config` is ignored by default — see `.gitignore`. The
 allowlist is deliberate: installed tools write credentials into this directory,
 so opting files in is the only safe default.
@@ -47,15 +59,14 @@ Two files are intentionally **not** tracked:
 
 ## Dependencies
 
-Every integration in `.zshrc` is guarded, so the shell works before any of
-these exist and lights up progressively as they are installed.
+`bootstrap.sh` installs everything. Every integration in `.zshrc` is also
+guarded, so the shell works before any of it exists and lights up
+progressively as tools appear.
 
-```sh
-brew install zsh neovim tmux fzf fd ripgrep eza bat zoxide git-delta oh-my-posh gnupg pinentry-mac
-```
+Three dependencies install themselves rather than coming from `Brewfile`:
 
-- [zi](https://github.com/z-shell/zi) — installs itself on first shell start
-- [atuin](https://atuin.sh) — shell history, standalone installer
+- [zi](https://github.com/z-shell/zi) — clones itself on first shell start
+- [atuin](https://atuin.sh) — `bootstrap.sh`; run `atuin login` after
 - [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — cloned by `install.sh`
 
 ## Neovim

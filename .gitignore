@@ -4,6 +4,8 @@
 /*
 
 !/.gitignore
+!/Brewfile
+!/bootstrap.sh
 !/README.md
 !/install.sh
 !/home/
