@@ -1,0 +1,30 @@
+# Portable settings only. Identity, signing key and machine-specific paths
+# belong in ~/.gitconfig.local, which is not tracked.
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+	hooksPath = ~/.git-hooks
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	hyperlinks = true
+	dark = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+	colorMoved = default
+
+# Keep last: later includes win, so local settings override everything above.
+[include]
+	path = ~/.gitconfig.local

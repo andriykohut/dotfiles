@@ -1,0 +1,44 @@
+#!/bin/sh
+# Global git hook, installed for every repository via core.hooksPath and
+# symlinked under each hook name it handles.
+#
+# On commit-msg it drops unwanted trailers from the message. For every hook
+# name, it then runs the repository's own .git/hooks/<name>, which git skips
+# entirely once core.hooksPath is set.
+
+set -u
+
+# Lines removed from every commit message, as one case-insensitive regex:
+# the attribution trailers, plus a bare session URL in case something writes
+# the link without the trailer key.
+STRIP_TRAILERS='^[ \t]*(co-authored-by|claude-session):|^[ \t]*https://claude[.]ai/code/session'
+
+# Remove those lines from the commit message file, plus any blank lines they
+# leave dangling at the end.
+strip_trailers() {
+    message_file=$1
+    stripped=$message_file.stripped
+
+    awk -v pattern="$STRIP_TRAILERS" '
+        tolower($0) ~ pattern { next }
+        { lines[++count] = $0 }
+        END {
+            while (count > 0 && lines[count] ~ /^[ \t]*$/) count--
+            for (i = 1; i <= count; i++) print lines[i]
+        }
+    ' "$message_file" > "$stripped" || return 0  # on failure keep the original
+
+    mv "$stripped" "$message_file"
+}
+
+hook_name=$(basename "$0")
+
+if [ "$hook_name" = commit-msg ]; then
+    strip_trailers "$1"
+fi
+
+repo_hook=$(git rev-parse --git-common-dir)/hooks/$hook_name
+if [ -x "$repo_hook" ]; then
+    exec "$repo_hook" "$@"
+fi
+exit 0

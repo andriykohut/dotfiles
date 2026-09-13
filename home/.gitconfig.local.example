@@ -1,0 +1,14 @@
+# Copy to ~/.gitconfig.local and fill in. Not tracked; holds identity,
+# signing key and machine-specific paths.
+
+[user]
+	name = Your Name
+	email = you@example.com
+	signingkey = YOUR_GPG_KEY_ID
+
+[commit]
+	gpgsign = true
+
+# Repositories git should run background maintenance on.
+# [maintenance]
+#	repo = /path/to/repo

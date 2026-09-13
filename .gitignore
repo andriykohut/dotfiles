@@ -1,0 +1,13 @@
+# The repository root is ~/.config, which every installed tool writes into --
+# including credentials. Ignore everything, then opt in explicitly, so tool
+# state can never be committed by accident.
+/*
+
+!/.gitignore
+!/README.md
+!/install.sh
+!/home/
+!/ghostty/
+!/htop/
+!/nvim/
+!/workmux/

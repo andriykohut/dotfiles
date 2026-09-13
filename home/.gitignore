@@ -1,0 +1,5 @@
+.cloudstorage/
+.idea/
+.python-version
+
+**/.claude/settings.local.json
