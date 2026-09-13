@@ -77,7 +77,8 @@ if command -v eza > /dev/null 2>&1; then
   alias ll='eza -lbGF --git'
 fi
 
-command -v oh-my-posh > /dev/null 2>&1 && eval "$(oh-my-posh init zsh)"
+command -v oh-my-posh > /dev/null 2>&1 && \
+  eval "$(oh-my-posh init zsh --config "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/oh-my-posh/themes/catppuccin_mocha.omp.json")"
 
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 if command -v uv > /dev/null 2>&1; then
