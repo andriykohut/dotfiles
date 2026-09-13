@@ -48,8 +48,7 @@ when present. Start from `Brewfile.local.example`.
 | `home/.zshenv`, `.zprofile`, `.zshrc` | `~` |
 | `home/.gitconfig`, `.gitignore` | `~` |
 | `home/.git-hooks/` | `~/.git-hooks` |
-| `home/.tmux.conf.local` | `~` |
-| `nvim/`, `ghostty/`, `workmux/` | already in place |
+| `nvim/`, `tmux/`, `ghostty/`, `workmux/` | already in place |
 
 `Brewfile` and `bootstrap.sh` install the toolchain; `install.sh` links the
 dotfiles.
@@ -77,7 +76,8 @@ Three dependencies install themselves rather than coming from `Brewfile`:
 
 - [zi](https://github.com/z-shell/zi) — clones itself on first shell start
 - [atuin](https://atuin.sh) — `bootstrap.sh`; run `atuin login` after
-- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — cloned by `install.sh`
+- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — cloned by `install.sh` into
+  `~/.local/share/tmux/oh-my-tmux`; `tmux/tmux.conf.local` holds our overrides
 
 ## Neovim
 

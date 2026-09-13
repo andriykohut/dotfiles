@@ -33,7 +33,6 @@ link .zshrc
 link .gitconfig
 link .gitignore
 link .git-hooks
-link .tmux.conf.local
 
 if [ ! -f "$HOME/.gitconfig.local" ]; then
     cp "$DOTFILES/home/.gitconfig.local.example" "$HOME/.gitconfig.local"
@@ -42,15 +41,18 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
     echo "and signing key there. It is not tracked."
 fi
 
-if [ ! -d "$HOME/.tmux" ]; then
+OH_MY_TMUX="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/oh-my-tmux"
+if [ ! -d "$OH_MY_TMUX" ]; then
     echo
     echo "Cloning gpakosz/.tmux"
-    git clone --depth=1 https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
+    mkdir -p "$(dirname "$OH_MY_TMUX")"
+    git clone --depth=1 https://github.com/gpakosz/.tmux.git "$OH_MY_TMUX"
 fi
-# Upstream's own config; ours is .tmux.conf.local, linked above.
-ln -sf "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
+# tmux 3.1+ finds tmux/tmux.conf under $XDG_CONFIG_HOME -- this directory -- and
+# derives tmux.conf.local beside it, so that file needs no link of its own.
+ln -snf "$OH_MY_TMUX/.tmux.conf" "$DOTFILES/tmux/tmux.conf"
 
 echo
 echo "Done. Open a new shell."
-echo "Neovim, ghostty, htop and workmux configs are already in place under"
+echo "Neovim, tmux, ghostty, htop and workmux configs are already in place under"
 echo "this directory, which is \$XDG_CONFIG_HOME."

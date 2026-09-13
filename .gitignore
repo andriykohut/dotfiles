@@ -12,4 +12,8 @@
 !/home/
 !/ghostty/
 !/nvim/
+!/tmux/
 !/workmux/
+
+# A symlink into ~/.local/share; install.sh recreates it per machine.
+/tmux/tmux.conf
