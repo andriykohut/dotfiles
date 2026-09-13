@@ -1,0 +1,5 @@
+# Copy to Brewfile.local for packages only this machine needs. Not tracked,
+# so `brew bundle dump` into the shared Brewfile will not pick them up.
+#
+# brew "some-tool"
+# cask "some-app"

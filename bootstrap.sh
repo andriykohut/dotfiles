@@ -22,6 +22,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 step "Homebrew packages"
 brew bundle --file="$DOTFILES/Brewfile"
+if [ -f "$DOTFILES/Brewfile.local" ]; then
+    step "Homebrew packages (this machine only)"
+    brew bundle --file="$DOTFILES/Brewfile.local"
+fi
 
 step "uv (owns Python interpreters and Python CLI apps)"
 if have uv; then

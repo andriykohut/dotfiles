@@ -25,6 +25,16 @@ skipped if already present, so it is safe to re-run.
 
 `install.sh` only creates symlinks.
 
+### Machine-specific packages
+
+`Brewfile` holds what every machine should have. Anything wanted on one machine
+only goes in `Brewfile.local`, which is not tracked; `bootstrap.sh` installs it
+when present. Start from `Brewfile.local.example`.
+
+> Do not run `brew bundle dump --force --file=Brewfile`. It writes everything
+> installed, so machine-specific packages would land back in the shared file.
+> Add entries by hand, or dump to `Brewfile.local`.
+
 `~/.config` usually already exists and contains files, which is why this is an
 `init`-and-`fetch` rather than a `git clone`.
 

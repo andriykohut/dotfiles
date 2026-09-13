@@ -50,7 +50,6 @@ brew "gettext"
 # media and documents
 brew "ffmpeg"
 brew "graphviz"
-brew "tesseract"
 brew "yt-dlp"
 brew "zbar"
 
@@ -71,18 +70,13 @@ brew "raine/aven/aven"
 # Not installed here on purpose: felixkratz/formulae/sketchybar is parked for
 # evaluation, not adopted. See the wiki before adding it.
 
-cask "1password"
-cask "arduino-ide"
 cask "audacity"
 cask "bruno"
 cask "canva"
 cask "ente-auth"
-cask "flutter"
 cask "font-cascadia-code-pl"
 cask "freecad"
-cask "gcloud-cli"
 cask "keepingyouawake"
 cask "keyboardcleantool"
 cask "localsend"
 cask "maccy"
-cask "qownnotes"

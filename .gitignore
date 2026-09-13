@@ -5,6 +5,7 @@
 
 !/.gitignore
 !/Brewfile
+!/Brewfile.local.example
 !/bootstrap.sh
 !/README.md
 !/install.sh
