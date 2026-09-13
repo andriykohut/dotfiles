@@ -60,5 +60,9 @@ brew install zsh neovim tmux fzf fd ripgrep eza bat zoxide git-delta oh-my-posh 
 
 ## Neovim
 
-Stock [LazyVim](https://lazyvim.org) starter, intentionally unmodified. Plugin
-versions are pinned in `nvim/lazy-lock.json`.
+Stock [LazyVim](https://lazyvim.org) starter, intentionally unmodified. The
+enabled extras are in `nvim/lazyvim.json`.
+
+`lazy-lock.json` is not tracked, so plugins float: a fresh clone installs
+whatever is current, and `:Lazy update` takes the latest. Pin a working set on
+one machine with `:Lazy restore` against a lockfile copied by hand.
