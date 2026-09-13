@@ -1,3 +1,22 @@
-background-blur-radius = 20
+theme = Catppuccin Mocha
 background-opacity = 0.92
+background-blur = 20
+# The transparency above washes out dim ANSI colours without this.
+minimum-contrast = 1.1
+
+window-padding-x = 12
+window-padding-y = 8
+window-padding-balance = true
+adjust-cell-height = 12%
+
+cursor-style-blink = false
+unfocused-split-opacity = 0.85
 mouse-hide-while-typing = true
+resize-overlay = never
+window-save-state = always
+# `both` would cost ⌥-compose for é and friends.
+macos-option-as-alt = left
+
+keybind = global:super+backquote=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.15
