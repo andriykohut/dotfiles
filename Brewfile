@@ -51,7 +51,6 @@ brew "gettext"
 brew "ffmpeg"
 brew "graphviz"
 brew "yt-dlp"
-brew "zbar"
 
 # system and ops
 brew "htop"
