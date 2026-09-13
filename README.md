@@ -1,7 +1,7 @@
 # dotfiles
 
 macOS configuration. The repository root **is** `$XDG_CONFIG_HOME` (`~/.config`),
-so files under `nvim/`, `ghostty/`, `htop/` and `workmux/` are already where
+so files under `nvim/`, `ghostty/` and `workmux/` are already where
 they need to be. Files that belong in `$HOME` live in `home/` and are symlinked
 by `install.sh`.
 
@@ -30,7 +30,7 @@ git checkout -f main
 | `home/.gitconfig`, `.gitignore` | `~` |
 | `home/.git-hooks/` | `~/.git-hooks` |
 | `home/.tmux.conf.local` | `~` |
-| `nvim/`, `ghostty/`, `htop/`, `workmux/` | already in place |
+| `nvim/`, `ghostty/`, `workmux/` | already in place |
 
 Everything else in `~/.config` is ignored by default — see `.gitignore`. The
 allowlist is deliberate: installed tools write credentials into this directory,
