@@ -95,6 +95,12 @@ if [[ -d "$HOME/Library/Android/sdk" ]]; then
   export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 fi
 
+# - pnpm ----------
+if [[ -d "$HOME/Library/pnpm" ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+  export PATH="$PNPM_HOME/bin:$PATH"
+fi
+
 # Claude Code drops to 256 colours whenever $TMUX is set, flattening the
 # statusline palette. TERM, COLORTERM and FORCE_COLOR do not override it.
 claude() { env -u TMUX -u TMUX_PANE command claude "$@"; }
