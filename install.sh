@@ -33,6 +33,7 @@ link .zshrc
 link .gitconfig
 link .gitignore
 link .git-hooks
+link .claude/statusline.sh
 
 if [ ! -f "$HOME/.gitconfig.local" ]; then
     cp "$DOTFILES/home/.gitconfig.local.example" "$HOME/.gitconfig.local"

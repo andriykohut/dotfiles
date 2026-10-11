@@ -48,6 +48,7 @@ when present. Start from `Brewfile.local.example`.
 | `home/.zshenv`, `.zprofile`, `.zshrc` | `~` |
 | `home/.gitconfig`, `.gitignore` | `~` |
 | `home/.git-hooks/` | `~/.git-hooks` |
+| `home/.claude/statusline.sh` | `~/.claude/statusline.sh` |
 | `nvim/`, `tmux/`, `ghostty/`, `workmux/` | already in place |
 
 `Brewfile` and `bootstrap.sh` install the toolchain; `install.sh` links the
@@ -56,6 +57,16 @@ dotfiles.
 Everything else in `~/.config` is ignored by default — see `.gitignore`. The
 allowlist is deliberate: installed tools write credentials into this directory,
 so opting files in is the only safe default.
+
+`~/.claude/settings.json` is not tracked, so the status line has to be switched
+on by hand on a new machine:
+
+```json
+"statusLine": { "type": "command", "command": "~/.claude/statusline.sh", "padding": 0 }
+```
+
+It needs bash 4.2+ (in `Brewfile`), `jq`, a truecolor terminal and Nerd Font
+glyphs. The Headroom block at the top is a no-op without `~/.local/bin/headroom`.
 
 ## Machine-specific settings
 

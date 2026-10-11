@@ -6,6 +6,7 @@ tap "raine/workmux"
 
 # shell
 brew "zsh"
+brew "bash" # the Claude Code status line needs 4.2+; macOS ships 3.2
 brew "oh-my-posh"
 brew "tmux"
 brew "raine/workmux/workmux"
